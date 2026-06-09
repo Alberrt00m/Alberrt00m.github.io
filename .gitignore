@@ -1,0 +1,8 @@
+# Archivos y carpetas a ignorar en Git
+node_modules/
+.DS_Store
+.vscode/
+*.log
+.env
+Codigo/
+imagenes y assets/
