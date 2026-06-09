@@ -4,10 +4,10 @@ const canvas = document.getElementById('miCanvas');
     const ALTO_CANVAS   = 500;
     canvas.width  = ANCHO_CANVAS;
     canvas.height = ALTO_CANVAS;
-    const GROSOR_BORDE = 8;
+    const GROSOR_BORDE = 10;
 
     const GRAVEDAD    = 0.5;
-    const FUERZA_SALTO = -12;
+    const FUERZA_SALTO = -10;
     const SUELO_Y      = ALTO_CANVAS - GROSOR_BORDE - 55;
 
     // seccion de niveles (cantidad: 5)
@@ -16,34 +16,35 @@ const canvas = document.getElementById('miCanvas');
       {
         plataformas: [
           { x: 350, y: SUELO_Y - 5,   ancho: 140, alto: 60,  color: '#000000' },
-          { x: GROSOR_BORDE,           y: SUELO_Y - 130, ancho: 320, alto: 40, color: '#000000' },
-          { x: ANCHO_CANVAS - GROSOR_BORDE - 320, y: SUELO_Y - 130, ancho: 320, alto: 40, color: '#000000' }
+          { x: GROSOR_BORDE,           y: SUELO_Y - 100, ancho: 320, alto: 30, color: '#000000' },
+          { x: ANCHO_CANVAS - GROSOR_BORDE - 320, y: SUELO_Y - 100, ancho: 320, alto: 30, color: '#000000' },
+          { x: GROSOR_BORDE,           y: SUELO_Y - 280, ancho: 420, alto: 30, color: '#000000' },
         ],
         plataformasMoviles: [],
-        circuloRojo: { x: ANCHO_CANVAS - GROSOR_BORDE - 80, y: 250, radio: 28, color: '#DC1C1C' },
-        circuloAzul: { x: GROSOR_BORDE + 80,                y: 250, radio: 28, color: '#1C5EDC' },
+        circuloRojo: { x: ANCHO_CANVAS - GROSOR_BORDE - 80, y: 300, radio: 28, color: '#DC1C1C' },
+        circuloAzul: { x: GROSOR_BORDE + 80,                y: 300, radio: 28, color: '#1C5EDC' },
       },
 // nivel 2
       {
         plataformas: [
           // Dos pilares cortos al centro (fuerzan saltar)
-          { x: 310, y: SUELO_Y - 80,  ancho: 80,  alto: 80,  color: '#000000' },
-          { x: 450, y: SUELO_Y - 80,  ancho: 80,  alto: 80,  color: '#000000' },
+          { x: 310, y: SUELO_Y - 50,  ancho: 70,  alto: 50,  color: '#000000' },
+          { x: 450, y: SUELO_Y - 50,  ancho: 70,  alto: 50,  color: '#000000' },
           // Plataforma izquierda alta (objetivo azul encima)
           { x: GROSOR_BORDE, y: SUELO_Y - 220, ancho: 180, alto: 20, color: '#000000' },
           // Plataforma derecha alta (objetivo rojo encima)
           { x: ANCHO_CANVAS - GROSOR_BORDE - 180, y: SUELO_Y - 220, ancho: 180, alto: 20, color: '#000000' },
           // Escalón izquierdo medio
-          { x: GROSOR_BORDE + 180, y: SUELO_Y - 130, ancho: 100, alto: 18, color: '#333333' },
+          { x: GROSOR_BORDE + 180, y: SUELO_Y - 130, ancho: 100, alto: 40, color: '#333333' },
           // Escalón derecho medio
-          { x: ANCHO_CANVAS - GROSOR_BORDE - 280, y: SUELO_Y - 130, ancho: 100, alto: 18, color: '#333333' },
+          { x: ANCHO_CANVAS - GROSOR_BORDE - 280, y: SUELO_Y - 130, ancho: 100, alto: 40, color: '#333333' },
         ],
         // Plataforma móvil central: va de izquierda a derecha al medio-alto
         plataformasMoviles: [
           {
             x: 340, y: 180, ancho: 120, alto: 18, color: '#555555',
             vx: 2.2, vy: 0,
-            limIzq: 150, limDer: 570
+            limIzq: 180, limDer: 650
           }
         ],
         circuloRojo: { x: ANCHO_CANVAS - GROSOR_BORDE - 90, y: SUELO_Y - 270, radio: 26, color: '#DC1C1C' },
@@ -56,17 +57,19 @@ const canvas = document.getElementById('miCanvas');
           // Pilar central bajo — quien se queda aquí presiona el botón
           { x: 380, y: SUELO_Y - 100, ancho: 80, alto: 100, color: '#000000' },
           // Torre izquierda alta (objetivo rojo arriba)
-          { x: GROSOR_BORDE, y: SUELO_Y - 280, ancho: 120, alto: 20, color: '#000000' },
+          { x: GROSOR_BORDE, y: SUELO_Y - 210, ancho: 120, alto: 20, color: '#000000' },
           // Escalón intermedio izquierdo
-          { x: GROSOR_BORDE + 120, y: SUELO_Y - 165, ancho: 90, alto: 18, color: '#333333' },
+          { x: GROSOR_BORDE + 120, y: SUELO_Y - 120, ancho: 120, alto: 18, color: '#333333' },
+          { x: GROSOR_BORDE + 200, y: SUELO_Y - 300, ancho: 70, alto: 18, color: '#333333' },
           // Torre derecha alta (objetivo azul arriba)
-          { x: ANCHO_CANVAS - GROSOR_BORDE - 120, y: SUELO_Y - 280, ancho: 120, alto: 20, color: '#000000' },
+          { x: ANCHO_CANVAS - GROSOR_BORDE - 120, y: SUELO_Y - 210, ancho: 120, alto: 20, color: '#000000' },
           // Escalón intermedio derecho
-          { x: ANCHO_CANVAS - GROSOR_BORDE - 210, y: SUELO_Y - 165, ancho: 90, alto: 18, color: '#333333' },
+          { x: ANCHO_CANVAS - GROSOR_BORDE - 240, y: SUELO_Y - 120, ancho: 120, alto: 20, color: '#333333' },
+          { x: GROSOR_BORDE + 550, y: SUELO_Y - 300, ancho: 70, alto: 18, color: '#333333' },
         ],
         plataformasMoviles: [],
-        circuloRojo: { x: GROSOR_BORDE + 60,                y: SUELO_Y - 315, radio: 26, color: '#DC1C1C' },
-        circuloAzul: { x: ANCHO_CANVAS - GROSOR_BORDE - 60, y: SUELO_Y - 315, radio: 26, color: '#1C5EDC' },
+        circuloRojo: { x: GROSOR_BORDE + 60,                y: SUELO_Y - 240, radio: 26, color: '#DC1C1C' },
+        circuloAzul: { x: ANCHO_CANVAS - GROSOR_BORDE - 60, y: SUELO_Y - 240, radio: 26, color: '#1C5EDC' },
         // Botón HOLD — activo SOLO mientras alguien lo pise
         botonSwitch: {
           x: 400, y: SUELO_Y - 115,
@@ -81,18 +84,25 @@ const canvas = document.getElementById('miCanvas');
           { x: 310, y: SUELO_Y - 80, ancho: 220, alto: 18,
             colorInactivo: '#555555', colorActivo: '#9D4EDD',
             visible: false },
+            { x: 385, y: SUELO_Y - 350, ancho: 80, alto: 18,
+            colorInactivo: '#555555', colorActivo: '#9D4EDD',
+            visible: false },
+            { x: 20, y: SUELO_Y - 40, ancho: 100, alto: 18,
+            colorInactivo: '#555555', colorActivo: '#9D4EDD',
+            visible: false },
+            { x: 720, y: SUELO_Y - 40, ancho: 100, alto: 18,
+            colorInactivo: '#555555', colorActivo: '#9D4EDD',
+            visible: false },
         ],
       },
 
 // nivel 4
       {
         plataformas: [
-          // Suelo izquierdo (solo izquierda del abismo)
-          { x: GROSOR_BORDE,  y: SUELO_Y, ancho: 240, alto: 55, color: '#000000' },
-          // Suelo derecho (solo derecha del abismo)
-          { x: ANCHO_CANVAS - GROSOR_BORDE - 240, y: SUELO_Y, ancho: 240, alto: 55, color: '#000000' },
+          // Suelo izquierdo
+          { x: GROSOR_BORDE,  y: SUELO_Y, ancho: 1000, alto: 55, color: '#000000' },
           // Plataforma alta izquierda (objetivo rojo)
-          { x: GROSOR_BORDE, y: 80, ancho: 140, alto: 18, color: '#000000' },
+          { x: GROSOR_BORDE, y: 100, ancho: 140, alto: 18, color: '#000000' },
           // Plataforma alta derecha (objetivo azul)
           { x: ANCHO_CANVAS - GROSOR_BORDE - 140, y: 80, ancho: 140, alto: 18, color: '#000000' },
           // Escalón subida izquierda
@@ -101,22 +111,52 @@ const canvas = document.getElementById('miCanvas');
           { x: ANCHO_CANVAS - GROSOR_BORDE - 90, y: SUELO_Y - 160, ancho: 90, alto: 18, color: '#333333' },
         ],
         plataformasMoviles: [
-          // Islote izquierdo: sube y baja lento
+          // Islote izquierdo: controlado por botón DERECHO (cruzado)
           {
-            x: 270, y: SUELO_Y - 120, ancho: 110, alto: 18, color: '#555555',
-            vx: 0, vy: -1.4,
-            limArr: 160, limAba: SUELO_Y - 40
+            x: 270, y: SUELO_Y - 40, ancho: 110, alto: 18, color: '#555555',
+            vx: 0, vy: 0,
+            velBase: 1.8,
+            limArr: 130, limAba: SUELO_Y - 40,
+            moviendose: false,
+            indice: 0
           },
-          // Islote derecho: fase opuesta (empieza abajo)
+          // Islote derecho: controlado por botón IZQUIERDO (cruzado)
           {
-            x: ANCHO_CANVAS - 270 - 110, y: 200, ancho: 110, alto: 18, color: '#555555',
-            vx: 0, vy: 1.4,
-            limArr: 160, limAba: SUELO_Y - 40
+            x: ANCHO_CANVAS - 270 - 110, y: SUELO_Y - 40, ancho: 110, alto: 18, color: '#555555',
+            vx: 0, vy: 0,
+            velBase: 1.8,
+            limArr: 130, limAba: SUELO_Y - 40,
+            moviendose: false,
+            indice: 1
+          },
+        ],
+        // Botón izquierdo → controla plataforma DERECHA (índice 1)
+        botonesSwitch: [
+          {
+            x: GROSOR_BORDE + 90, y: SUELO_Y - 12,
+            ancho: 44, alto: 12,
+            activado: false,
+            pulsoTimer: 0,
+            colorApagado: '#7B2FBE',
+            colorEncendido: '#C77DFF',
+            etiqueta: '▶',
+            controlaPlatIndice: 1
+          },
+          // Botón derecho → controla plataforma IZQUIERDA (índice 0)
+          {
+            x: ANCHO_CANVAS - GROSOR_BORDE - 134, y: SUELO_Y - 12,
+            ancho: 44, alto: 12,
+            activado: false,
+            pulsoTimer: 0,
+            colorApagado: '#7B2FBE',
+            colorEncendido: '#C77DFF',
+            etiqueta: '◀',
+            controlaPlatIndice: 0
           },
         ],
         // Objetivos cruzados: rojo al alto izquierdo, azul al alto derecho
-        circuloRojo: { x: GROSOR_BORDE + 70,                  y: 50,  radio: 26, color: '#DC1C1C' },
-        circuloAzul: { x: ANCHO_CANVAS - GROSOR_BORDE - 70,   y: 50,  radio: 26, color: '#1C5EDC' },
+        circuloRojo: { x: GROSOR_BORDE + 40,                  y: 240,  radio: 26, color: '#DC1C1C' },
+        circuloAzul: { x: ANCHO_CANVAS - GROSOR_BORDE - 70,   y: 240,  radio: 26, color: '#1C5EDC' },
       },
 
 // nivel 5
@@ -184,6 +224,24 @@ const canvas = document.getElementById('miCanvas');
       }
       if (n3.plataformasOcultas) {
         for (const po of n3.plataformasOcultas) po.visible = false;
+      }
+    }
+
+    // ─── RESETEAR ESTADO DE NIVEL 4 ──────────────────────────────────────────
+    function resetearEstadoNivel4() {
+      const n4 = niveles[3];
+      if (n4.botonesSwitch) {
+        for (const btn of n4.botonesSwitch) {
+          btn.activado = false;
+          btn.pulsoTimer = 0;
+        }
+      }
+      if (n4.plataformasMoviles) {
+        for (const pm of n4.plataformasMoviles) {
+          pm.y = pm.limAba;
+          pm.vy = 0;
+          pm.moviendose = false;
+        }
       }
     }
 
@@ -317,6 +375,24 @@ const canvas = document.getElementById('miCanvas');
     function actualizarPlataformasMoviles() {
       const nivel = niveles[nivelActual];
       for (const pm of nivel.plataformasMoviles) {
+        // Plataformas del nivel 4: solo se mueven si moviendose === true
+        if (typeof pm.moviendose !== 'undefined') {
+          if (pm.moviendose) {
+            pm.y -= pm.velBase;
+            if (pm.y <= pm.limArr) {
+              pm.y = pm.limArr;
+              // Llega arriba: se queda quieta arriba
+            }
+          } else {
+            // Baja lentamente si no está siendo activada y no ha llegado al fondo
+            if (pm.y < pm.limAba) {
+              pm.y += pm.velBase * 0.7;
+              if (pm.y >= pm.limAba) pm.y = pm.limAba;
+            }
+          }
+          continue;
+        }
+        // Lógica normal para otros niveles
         pm.x += pm.vx;
         if (pm.vx !== 0) {
           if (pm.x <= pm.limIzq) { pm.x = pm.limIzq; pm.vx = Math.abs(pm.vx); }
@@ -408,6 +484,25 @@ const canvas = document.getElementById('miCanvas');
         if (btn.pulsoTimer > 0) btn.pulsoTimer--;
       }
 
+      // — Botones cruzados HOLD (solo nivel 4) —
+      if (nivel.botonesSwitch) {
+        for (const btn of nivel.botonesSwitch) {
+          const hitbox = { x: btn.x, y: btn.y, ancho: btn.ancho, alto: btn.alto };
+          const rojoEncima = colisiona(cuadradoRojo, hitbox);
+          const azulEncima = colisiona(cuadradoAzul, hitbox);
+          const alguienEncima = rojoEncima || azulEncima;
+
+          const estabaActivado = btn.activado;
+          btn.activado = alguienEncima;
+          if (btn.activado !== estabaActivado) btn.pulsoTimer = 20;
+          if (btn.pulsoTimer > 0) btn.pulsoTimer--;
+
+          // Controla la plataforma cruzada
+          const pm = nivel.plataformasMoviles[btn.controlaPlatIndice];
+          if (pm) pm.moviendose = btn.activado;
+        }
+      }
+
       // — Verificar victoria —
       const { circuloRojo, circuloAzul } = nivel;
       const ambosEnObjetivo =
@@ -482,6 +577,57 @@ const canvas = document.getElementById('miCanvas');
       ctx.fillStyle = activado ? '#C77DFF' : '#9D4EDD';
       ctx.textAlign = 'center';
       ctx.fillText(activado ? '▼ HOLD' : '▼ HOLD', x + ancho / 2, y - 5);
+      ctx.textAlign = 'left';
+      ctx.restore();
+    }
+
+    function dibujarBotonCruzado(btn) {
+      const { x, y, ancho, alto, activado, colorApagado, colorEncendido, pulsoTimer, etiqueta } = btn;
+      const color = activado ? colorEncendido : colorApagado;
+      ctx.save();
+
+      // Brillo cuando activo
+      if (activado || pulsoTimer > 0) {
+        ctx.shadowColor = '#C77DFF';
+        ctx.shadowBlur = activado
+          ? (pulsoTimer > 0 ? 22 + pulsoTimer : 14)
+          : pulsoTimer * 0.6;
+      }
+
+      // Cuerpo redondeado
+      const r = 5;
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + ancho - r, y);
+      ctx.quadraticCurveTo(x + ancho, y, x + ancho, y + r);
+      ctx.lineTo(x + ancho, y + alto - r);
+      ctx.quadraticCurveTo(x + ancho, y + alto, x + ancho - r, y + alto);
+      ctx.lineTo(x + r, y + alto);
+      ctx.quadraticCurveTo(x, y + alto, x, y + alto - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+      ctx.fillStyle = color;
+      ctx.fill();
+
+      // Brillo superior
+      ctx.globalAlpha = 0.35;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(x + 4, y + 2, ancho - 8, alto / 2 - 1);
+      ctx.globalAlpha = 1;
+
+      // Borde
+      ctx.strokeStyle = activado ? '#E0AAFF' : '#5A189A';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.restore();
+
+      // Etiqueta encima con flecha cruzada
+      ctx.save();
+      ctx.font = 'bold 9px "Courier New", monospace';
+      ctx.fillStyle = activado ? '#C77DFF' : '#9D4EDD';
+      ctx.textAlign = 'center';
+      ctx.fillText('HOLD ' + etiqueta, x + ancho / 2, y - 5);
       ctx.textAlign = 'left';
       ctx.restore();
     }
@@ -627,6 +773,11 @@ const canvas = document.getElementById('miCanvas');
         }
       }
 
+      // Botones cruzados (nivel 4)
+      if (nivel.botonesSwitch) {
+        for (const btn of nivel.botonesSwitch) dibujarBotonCruzado(btn);
+      }
+
       // Borde
       dibujarBorde();
 
@@ -652,6 +803,7 @@ const canvas = document.getElementById('miCanvas');
       cuadradoAzul = crearCuadradoAzul();
       // Resetear estado de nivel 3 si volvemos a él (por si acaso)
       resetearEstadoNivel3();
+      resetearEstadoNivel4();
       // Ocultar overlay
       document.getElementById('overlay-nivel').classList.remove('visible');
       // Actualizar indicador exterior
@@ -710,6 +862,7 @@ const canvas = document.getElementById('miCanvas');
           cuadradoRojo = crearCuadradoRojo();
           cuadradoAzul = crearCuadradoAzul();
           resetearEstadoNivel3();
+          resetearEstadoNivel4();
           document.getElementById('nivel-indicador').textContent = `NIVEL ${nivelActual + 1}`;
         } else {
           // Ya estamos en el último nivel → mostrar victoria
@@ -736,12 +889,6 @@ const canvas = document.getElementById('miCanvas');
           // Mostrar botón brevemente con efecto
           btnCheat.style.opacity = '1';
           btnCheat.style.pointerEvents = 'auto';
-          // Auto-ocultar después de 4 s si no se usa
-          clearTimeout(btnCheat._timer);
-          btnCheat._timer = setTimeout(() => {
-            btnCheat.style.opacity = '0';
-            btnCheat.style.pointerEvents = 'none';
-          }, 4000);
         }
       });
     })();
