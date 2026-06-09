@@ -1,22 +1,19 @@
 # Proyecto Mariana // Leo y Mia
 
-Un juego de plataformas cooperativo en HTML5 donde ambos se deben de ayudar para completar los niveles.
+Un juego de plataformas cooperativo en HTML5 donde ambos deben ayudarse mutuamente para completar los niveles.
 
-## Características actuales (08/06/2026)
+## Características actuales (09/06/2026)
 
-- 5 niveles con fondos simples
-- Dos personajes simples (Cuadrado Rojo y Cuadrado Azul)
-- Físicas de plataformas con gravedad, saltos y colisiones
-- Plataformas móviles, obstaculos y sistemas en varios niveles
+- Cuatro niveles retadores (nivel cinco en construcción)
+- Dos personajes jugables (Mia la coneja y Leo el perro)
+- Obstáculos con física, colisiones e interacciones con los jugadores
 - Trucos activados si escribes CHET en el teclado, pero no se lo digas a nadie
 
 ## Características a futuro 
 
-- Mejora a los personajes (ahora seran Mia y Leo)
-- Mejora al fondo (decorado agradable a la vista)
-- Mejora en los niveles (plataformas de reinicio)
-- Sistema de puntos extras (no obligatorios para completar el nivel)
-- Más opciones en la barra de trucos 
+- Mejora en la lógica de niveles (búsqueda de cooperación activa)
+- Sistema de puntos extra (desafíos adicionales para los jugadores)
+- Más opciones en la barra de trucos (incluyendo notas de desarrollo)
 
 ## Información técnica
 
