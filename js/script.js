@@ -6,6 +6,24 @@ const canvas = document.getElementById('miCanvas');
     canvas.height = ALTO_CANVAS;
     const GROSOR_BORDE = 10;
 
+    // ─── IMAGEN MIA (jugador azul) ───────────────────────────────────────────
+    const imgMia = new Image();
+    imgMia.src = 'Mia.png';
+    let miaImagenLista = false;
+    imgMia.onload = () => { miaImagenLista = true; };
+
+    // ─── IMAGEN LEO (jugador rojo) ───────────────────────────────────────────
+    const imgLeo = new Image();
+    imgLeo.src = 'Leo.png';
+    let leoImagenLista = false;
+    imgLeo.onload = () => { leoImagenLista = true; };
+
+    // ─── IMAGEN FONDO ────────────────────────────────────────────────────────
+    const imgFondo = new Image();
+    imgFondo.src = 'fondo.png';
+    let fondoImagenLista = false;
+    imgFondo.onload = () => { fondoImagenLista = true; };
+
     const GRAVEDAD    = 0.5;
     const FUERZA_SALTO = -10;
     const SUELO_Y      = ALTO_CANVAS - GROSOR_BORDE - 55;
@@ -99,10 +117,11 @@ const canvas = document.getElementById('miCanvas');
 // nivel 4
       {
         plataformas: [
+          { x: 400, y: SUELO_Y - 270,  ancho: 40,  alto: 800,  color: '#000000' },
           // Suelo izquierdo
           { x: GROSOR_BORDE,  y: SUELO_Y, ancho: 1000, alto: 55, color: '#000000' },
           // Plataforma alta izquierda (objetivo rojo)
-          { x: GROSOR_BORDE, y: 100, ancho: 140, alto: 18, color: '#000000' },
+          { x: GROSOR_BORDE, y: 100, ancho: 190, alto: 18, color: '#000000' },
           // Plataforma alta derecha (objetivo azul)
           { x: ANCHO_CANVAS - GROSOR_BORDE - 140, y: 100, ancho: 140, alto: 18, color: '#000000' },
           // Escalón subida izquierda
@@ -155,7 +174,7 @@ const canvas = document.getElementById('miCanvas');
           },
         ],
         // Objetivos cruzados: rojo al alto izquierdo, azul al alto derecho
-        circuloRojo: { x: GROSOR_BORDE + 40,                  y: 70,  radio: 26, color: '#DC1C1C' },
+        circuloRojo: { x: GROSOR_BORDE + 40,                  y: 280,  radio: 26, color: '#DC1C1C' },
         circuloAzul: { x: ANCHO_CANVAS - GROSOR_BORDE - 70,   y: 70,  radio: 26, color: '#1C5EDC' },
       },
 
@@ -708,28 +727,49 @@ const canvas = document.getElementById('miCanvas');
     }
 
     function dibujarSombras() {
+      // Sombra del jugador rojo (Leo): proyección suave bajo la imagen
       ctx.save();
-      ctx.shadowColor   = 'rgba(180, 0, 0, 0.35)';
+      ctx.shadowColor   = 'rgba(180, 160, 0, 0.35)';
       ctx.shadowBlur    = 12;
       ctx.shadowOffsetY = 4;
-      ctx.fillStyle     = cuadradoRojo.color;
-      ctx.fillRect(cuadradoRojo.x, cuadradoRojo.y, cuadradoRojo.ancho, cuadradoRojo.alto);
+      if (leoImagenLista) {
+        ctx.drawImage(imgLeo, cuadradoRojo.x, cuadradoRojo.y, cuadradoRojo.ancho, cuadradoRojo.alto);
+      } else {
+        ctx.fillStyle = cuadradoRojo.color;
+        ctx.fillRect(cuadradoRojo.x, cuadradoRojo.y, cuadradoRojo.ancho, cuadradoRojo.alto);
+      }
       ctx.restore();
 
+      // Sombra del jugador azul (Mia): proyección suave bajo la imagen
       ctx.save();
-      ctx.shadowColor   = 'rgba(28, 94, 220, 0.35)';
-      ctx.shadowBlur    = 12;
-      ctx.shadowOffsetY = 4;
-      ctx.fillStyle     = cuadradoAzul.color;
-      ctx.fillRect(cuadradoAzul.x, cuadradoAzul.y, cuadradoAzul.ancho, cuadradoAzul.alto);
+      ctx.shadowColor   = 'rgba(255, 150, 200, 0.4)';
+      ctx.shadowBlur    = 14;
+      ctx.shadowOffsetY = 5;
+      if (miaImagenLista) {
+        ctx.drawImage(imgMia, cuadradoAzul.x, cuadradoAzul.y, cuadradoAzul.ancho, cuadradoAzul.alto);
+      } else {
+        ctx.fillStyle = cuadradoAzul.color;
+        ctx.fillRect(cuadradoAzul.x, cuadradoAzul.y, cuadradoAzul.ancho, cuadradoAzul.alto);
+      }
       ctx.restore();
     }
 
     function dibujarCuadrados() {
-      ctx.fillStyle = cuadradoRojo.color;
-      ctx.fillRect(cuadradoRojo.x, cuadradoRojo.y, cuadradoRojo.ancho, cuadradoRojo.alto);
-      ctx.fillStyle = cuadradoAzul.color;
-      ctx.fillRect(cuadradoAzul.x, cuadradoAzul.y, cuadradoAzul.ancho, cuadradoAzul.alto);
+      // Jugador rojo: dibujar imagen Leo dentro del hitbox exacto
+      if (leoImagenLista) {
+        ctx.drawImage(imgLeo, cuadradoRojo.x, cuadradoRojo.y, cuadradoRojo.ancho, cuadradoRojo.alto);
+      } else {
+        ctx.fillStyle = cuadradoRojo.color;
+        ctx.fillRect(cuadradoRojo.x, cuadradoRojo.y, cuadradoRojo.ancho, cuadradoRojo.alto);
+      }
+
+      // Jugador azul: dibujar imagen Mia dentro del hitbox exacto
+      if (miaImagenLista) {
+        ctx.drawImage(imgMia, cuadradoAzul.x, cuadradoAzul.y, cuadradoAzul.ancho, cuadradoAzul.alto);
+      } else {
+        ctx.fillStyle = cuadradoAzul.color;
+        ctx.fillRect(cuadradoAzul.x, cuadradoAzul.y, cuadradoAzul.ancho, cuadradoAzul.alto);
+      }
     }
 
     // Etiqueta de nivel en canvas (esquina superior izquierda)
@@ -746,8 +786,12 @@ const canvas = document.getElementById('miCanvas');
     function bucleDeJuego() {
       // Fondo
       ctx.clearRect(0, 0, ANCHO_CANVAS, ALTO_CANVAS);
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, ANCHO_CANVAS, ALTO_CANVAS);
+      if (fondoImagenLista) {
+        ctx.drawImage(imgFondo, 0, 0, ANCHO_CANVAS, ALTO_CANVAS);
+      } else {
+        ctx.fillStyle = '#5ba8d4';
+        ctx.fillRect(0, 0, ANCHO_CANVAS, ALTO_CANVAS);
+      }
 
       const nivel = niveles[nivelActual];
 
