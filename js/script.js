@@ -1,3 +1,4 @@
+/*
 const canvas = document.getElementById('miCanvas');
     const ctx    = canvas.getContext('2d');
     const ANCHO_CANVAS  = 840;
@@ -966,4 +967,4 @@ const canvas = document.getElementById('miCanvas');
     })();
 
     // ─── ARRANQUE ────────────────────────────────────────────────────────────
-    bucleDeJuego();
+    bucleDeJuego(); */
