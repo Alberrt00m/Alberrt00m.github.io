@@ -1,35 +1,30 @@
-# Proyecto Mariana // Leo y Mia
+# Proyecto Mariana // Leo y Mía
 
-Un juego de plataformas cooperativo en HTML5 donde ambos deben ayudarse mutuamente para completar los niveles.
+Juego en 2D para dos jugadores desarrollado con HTML5, CSS y JavaScript para el proyecto *Mi Corazón Incompleto*. En esta aventura cooperativa, controlas a Leo (el perro) y a Mía (la coneja), quienes deberán trabajar en equipo para superar obstáculos y llegar a la meta. A lo largo de 5 niveles, deberan recolectar los fragmentos de corazón.
 
 ## Características actuales (10/06/2026)
 
-- Cinco niveles retadores para cooperar 
-- Dos personajes jugables (Mia la coneja y Leo el perro)
-- Obstáculos con físicas, colisiones e interacciones con los jugadores
-- Recolecta los fragmentos de corazon de Leo y Mia en los 5 niveles
-- Trucos activados si escribes CHET en el teclado, pero no se lo digas a nadie
-
-## Características a futuro 
-
-- Generacion de niveles automaticos (ya no mas niveles predeterminados)
-- Más opciones en la barra de trucos (incluyendo notas de desarrollo)
+- **Modo Cooperativo:** 5 niveles desafiantes diseñados para el trabajo en equipo.
+- **Dos Personajes Jugables:** Controla a Mía (la coneja) y a Leo (el perro).
+- **Sistema de Físicas:** Obstáculos con colisiones dinámicas e interacciones en tiempo real.
+- **Coleccionables:** Mecánica de recolección de fragmentos de corazón específicos para cada personaje.
+- **Secreto:** Activa trucos especiales escribiendo `CHET` en el teclado.
 
 ## Información técnica
 
-- **Lenguaje**: JavaScript vanilla (sin frameworks externos)
-- **Gráficos**: HTML5 Canvas
-- **Compatibilidad**: Navegadores modernos con soporte para Canvas 2D
-- **Hosting**: Compatible con GitHub Pages
+- **Tecnologías:** JavaScript Vanilla (sin librerías ni frameworks externos).
+- **Renderizado:** HTML5 Canvas API.
+- **Compatibilidad:** Navegadores modernos con soporte para Canvas 2D.
+- **Despliegue:** Alojado y optimizado para GitHub Pages.
 
 ## Autor
 
 BERRT90 // ALBERRT00M
 
-## Link
+## Enlace del proyecto
 
-https://alberrt00m.github.io/
+[¡Juega aquí!](https://alberrt00m.github.io/)
 
 ## Licencia
 
-Este proyecto es un proyecto educativo.
+Este es un proyecto con fines educativos.
