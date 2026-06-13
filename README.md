@@ -23,7 +23,7 @@ BERRT90 // ALBERRT00M
 
 ## Enlace del proyecto
 
-[¡Juega aquí!](https://alberrt00m.github.io/)
+[¡Juega aquí!](https://alberrt00m.github.io/Proyecto_Tortolitos/)
 
 ## Licencia
 
