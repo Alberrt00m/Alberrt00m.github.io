@@ -17,15 +17,15 @@ function cargarImagen(src) {
   return img;
 }
 
-const imgMia      = cargarImagen('/image/Mia.png');
-const imgLeo      = cargarImagen('/image/Leo.png');
-const imgFondo    = cargarImagen('/image/fondo.png');
-const imgPuertaMia = cargarImagen('/image/puertamia.png');
-const imgPuertaLeo = cargarImagen('/image/puertaleo.png');
-const imgGemaMia  = cargarImagen('/image/gemamia.png');
-const imgGemaLeo  = cargarImagen('/image/gemaleo.png');
-const imgPiso     = cargarImagen('/image/piso__2_.png');
-const imgIntro    = cargarImagen('/image/intro.png');
+const imgMia      = cargarImagen('image/Mia.png');
+const imgLeo      = cargarImagen('image/Leo.png');
+const imgFondo    = cargarImagen('image/fondo.png');
+const imgPuertaMia = cargarImagen('image/puertamia.png');
+const imgPuertaLeo = cargarImagen('image/puertaleo.png');
+const imgGemaMia  = cargarImagen('image/gemamia.png');
+const imgGemaLeo  = cargarImagen('image/gemaleo.png');
+const imgPiso     = cargarImagen('image/piso__2_.png');
+const imgIntro    = cargarImagen('image/intro.png');
 
 let enPantallaIntro = true;
 let hoverBotonJugar = false;
